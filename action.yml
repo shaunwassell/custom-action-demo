@@ -1,0 +1,30 @@
+name: custom-action-demo
+
+description: A simple demo for creating custom actions
+
+inputs:
+  workflow-name:
+    description: The name of the workflow calling the action
+    required: true
+
+outputs:
+  message:
+    description: A friendly message from the action
+    value: ${{ steps.create-message.outputs.message }}
+
+runs:
+  using: composite
+
+  steps:
+    - name: Print message
+      shell: bash
+      run: echo "A custom action has been called by ${{ inputs.workflow-name }}"
+
+    - name: Set output
+      id: create-message
+      shell: bash
+      run: echo "message=Hello from inside a workflow!" >> "$GITHUB_OUTPUT"
+
+    - name: Say goodbye
+      shell: bash
+      run: echo "Goodbye..."
