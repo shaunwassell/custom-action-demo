@@ -18,7 +18,9 @@ runs:
   steps:
     - name: Print message
       shell: bash
-      run: echo "A custom action has been called by ${{ inputs.workflow-name }}"
+      env:
+        WORKFLOW_NAME: ${{ inputs.workflow-name }}
+      run: echo "A custom action has been called by $WORKFLOW_NAME"
 
     - name: Set output
       id: create-message
