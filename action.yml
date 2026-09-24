@@ -3,10 +3,10 @@ name: custom-action-demo
 description: A simple demo for creating custom actions
 
 inputs:
-  workflow-name:
+  name-of-workflow:
     description: The name of the workflow calling the action
     required: true
-  job-name:
+  name-of-job:
     description: The name of the job calling the action
     required: false
     default: "<job not specified>"
