@@ -6,6 +6,10 @@ inputs:
   workflow-name:
     description: The name of the workflow calling the action
     required: true
+  job-name:
+    description: The name of the job calling the action
+    required: false
+    default: "<job not specified>"
 
 outputs:
   message:
